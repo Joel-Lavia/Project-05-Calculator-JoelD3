@@ -14,30 +14,26 @@ const allbouttons = bouttons[i];
 allbouttons.onclick = function(event){
    
 if(screen.value == "0"){
+  event.preventDefault();
   screen.value = "";
   screen.value += event.target.innerHTML;
 }
 else{
+  event.preventDefault();
   screen.value += event.target.innerHTML;
 }
 // si on clique sur = -+/* que le boutton  renvoie les chiffres au second ecran
 if(screen.value == "="){
-  event.preventDefault();
   screen2.innerHTML += screen.value;
+  event.preventDefault();
 }
 else if(screen.value == "+"){
-  event.preventDefault();
-  screen.innerHTML +=screen.value; 
+  event.preventDefault(event);
+  screen2.innerHTML +=screen.value; 
 }
 }
 }
 
-// if(allbouttons.onclick = function(event1){
-// if(screen.value == "="){
-//   event1.preventDefault();
-//   screen2.innerHTML = "12";
-// }
-// }){
  
 
-// }
+

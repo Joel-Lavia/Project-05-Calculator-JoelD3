@@ -18,19 +18,25 @@ if(screen.value == "0"){
   screen.value = "";
   screen.value += event.target.innerHTML;
 }
+//quand on clique l dois avoir les oprtations de + et -
+// cree une fonction ou quand on clique il dois avoir de calcule * et /
+else if(event.target.innerHTML == "="){
+  event.preventDefault();
+  screen2.innerHTML += eval(screen.value); 
+}
 else{
   event.preventDefault();
   screen.value += event.target.innerHTML;
 }
-// si on clique sur = -+/* que le boutton  renvoie les chiffres au second ecran
-if(screen.value == "="){
-  screen2.innerHTML += screen.value;
-  event.preventDefault();
-}
-else if(screen.value == "+"){
-  event.preventDefault(event);
-  screen2.innerHTML +=screen.value; 
-}
+// si on clique sur = -+/* que le boutton  renvoie les chiffres au second ecran.
+// if(screen.value == "="){
+//   screen2.textContent = eval(screen.value);
+  
+// }
+// else if(screen.value == "+"){
+//   event.preventDefault();
+//   screen2.innerHTML +=screen.value; 
+// }
 }
 }
 

@@ -6,51 +6,42 @@ const screen = document.getElementById("input");
 const bouttons = document.querySelectorAll(".numpad,#divideby,#times,#minus,#plus,#equals");
 //je cible l'ecran qui va effectuer les calcules
 const screen2 = document.getElementById("calcul");
+let screenValue = "";
 
 for(let i = 0; i<bouttons.length; i++){
 //stocke tous les elements bouttons dans une  variable allbouttons
 const allbouttons = bouttons[i];
-let div;
-let mutiplication;
-
-// console.log(allbouttons);
+//si on clique sur x qu'elle soit remplacer par *
 allbouttons.onclick = function(event){
-  //remplacer x par * et ÷ par /
-  if(screen.value == "0"){
-      event.preventDefault();
-      screen.value = "";
-      screen.value += event.target.innerHTML;
-    }
-  //le boutton AC doit reinitialiser les 2 ecrans
-  // else if(event.target.innerHTML == "AC"){
-  //   event.preventDefault();
-  //   screen2.textContent= "";
-  //   screen.value = "0";
-  // }
-  //quand on clique sur = que x soit remplacer par * et ÷ par /
-  else if(event.target.innerHTML =="="){
-    event.preventDefault();
-    // if(event.target.innerHTML == "×"){
-    //   op = event.replace("×","*");
-    //   console.log(op);
-    // }
-    // screen2.innerHTML += eval(screen.value);
-    // console.log(screen.value);
-    // if(screen.value.includes('×') ){
-    //   screen.value.replace("×","*");
-    // }
-    // else if(screen.value.includes("÷"))
-    // {
-    //   screen.value.replace("÷","/");
-    // }
-    // console.log({evevtValue: event.target.innerHTML, screenValue: screen.value});
-    screen2.innerHTML += eval(screen.value);
-    
-  }
-  else{
-      event.preventDefault();
-      screen.value += event.target.innerHTML;
-    }
+if(screen.value == "0"){
+  event.preventDefault();
+  screen.value = "";
+  screen.value += event.target.innerHTML;
+}
+else if(event.target.innerHTML == "×"){
+  event.preventDefault();
+  event.target.innerHTML = "*";
+}
+else if(event.target.innerHTML == "÷"){
+  event.preventDefault();
+  event.target.innerHTML = "/";
+}
+else if(event.target.innerHTML == "C"){
+  screen.value =screen.slice(0, -1);
+}
+else if (event.target.innerHTML == "AC") {
+  event.preventDefault();
+  screenValue = "";
+  screen.value += defaultValue;
+  screen2.value += screenValue;
+}
+else if(event.target.innerHTML == "="){
+  event.preventDefault();
+  screen2.innerHTML += eval(screen.value); 
+}
+else{
+  event.preventDefault();
+  screen.value += event.target.innerHTML;
 }
 }
-
+}

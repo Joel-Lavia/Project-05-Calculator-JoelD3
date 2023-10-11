@@ -39,20 +39,16 @@ const boutton = bouttons[i];
 boutton.addEventListener("click",function(event){
 event.preventDefault();
 //rends les boutton numerique cliquable
-let resultat;
 if(screenInput.value == "0"){
     screenInput.value ="";
     screenInput.value += event.target.innerText;
 }
 /*3.Faire en sorte que quand il y'a un event onclick sur un operateur les données entrées
  dans le screeninput monte sur le screenresult*/
-//  else if(event.target.innerText == "×"){
-//     let resultat = screenInput.value.replace("×","*");
-//  }
-//  else if(screenInput.value == "÷"){
-//     let division = screenInput.value;
-//     division.replace(screenInput.value,"/");
-//     // console.log(division.replace(screenInput.value,"/"));
+//  else if(event.target.innerText == "÷"){
+//     // let division =
+//     event.target.innerText = "/";
+//     // division.replace(screenInput.value,"/");
 //  }
 
 //  else if(event.target.innerText == "="){ 
@@ -61,17 +57,21 @@ if(screenInput.value == "0"){
 //  }
 
  else if(event.target.innerText == "="){ 
-    resultat = screenInput.value.replace("×", "*");
+    let resultat = screenInput.value.replace("×", "*");
+     resultat = resultat.replace("÷", "/");
     screenResult.innerText +=eval(resultat); 
 }
- 
+
+// else if(event.target.innerText == "="){ 
+//     let resultat = screenInput.value.replace("÷", "/");
+//      resultat = resultat.replace("÷", "/");
+
+//     screenResult.innerText +=eval(resultat); 
+// }
+
  else {
 screenInput.value += event.target.innerText;
   }
-
-
-
-
 });
 
 };

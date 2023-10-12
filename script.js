@@ -45,9 +45,6 @@ else if(event.target.innerText == "+" || event.target.innerText == "-" || event.
 }
 //cette condition gère le bouton égale
  else if(event.target.innerText == "="){
-   /*remplacer x par * et ÷ par / a partir de la methode replace 
-    renvoie le resulat sur le screenInput*/
-
     //la variable resultatConcatenation stock la concantenation du screenHistorique de la précedente condition 
     //et celui de la valeur de l'input quand on appuie sur égale pour 
     let resultatConcatenation = `${screenHistorique.innerText}  ${screenInput.value} =`;
@@ -56,7 +53,8 @@ else if(event.target.innerText == "+" || event.target.innerText == "-" || event.
     /*screenHistorique.innerText renvoie la concatenation de la variable resultatConcatenation 
     dans le screenHistorique*/
     screenHistorique.innerText = resultatConcatenation;
-    //ScreenInput.value revoie le resultat final dans le screenInput.value
+    /*ScreenInput.value revoie le resultat final dans le screenInput.value
+    et la methode replace remplacer x par * et ÷ par / */
     screenInput.value = eval(resultatFinal.replace("×", "*").replace("÷", "/"));  
 }
  else {

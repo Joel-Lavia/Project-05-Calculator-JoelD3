@@ -45,31 +45,10 @@ if(screenInput.value == "0"){
 }
 /*3.Faire en sorte que quand il y'a un event onclick sur un operateur les données entrées
  dans le screeninput monte sur le screenresult*/
-//  else if(event.target.innerText == "÷"){
-//     // let division =
-//     event.target.innerText = "/";
-//     // division.replace(screenInput.value,"/");
-//  }
-
-//  else if(event.target.innerText == "="){ 
-//      resultat = screenInput.value.replace("÷", "/");
-//      screenResult.innerText +=eval(resultat); 
-//  }
-
  else if(event.target.innerText == "="){ 
-    // let resultat = screenInput.value.replace("×", "*");
-    //  resultat = resultat.replace("÷", "/");
     let resultat = screenInput.value.replace("×", "*").replace("÷", "/");
     screenResult.innerText +=eval(resultat); 
 }
-
-// else if(event.target.innerText == "="){ 
-//     let resultat = screenInput.value.replace("÷", "/");
-//      resultat = resultat.replace("÷", "/");
-
-//     screenResult.innerText +=eval(resultat); 
-// }
-
  else {
 screenInput.value += event.target.innerText;
   }

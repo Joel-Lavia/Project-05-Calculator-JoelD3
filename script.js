@@ -57,8 +57,9 @@ if(screenInput.value == "0"){
 //  }
 
  else if(event.target.innerText == "="){ 
-    let resultat = screenInput.value.replace("×", "*");
-     resultat = resultat.replace("÷", "/");
+    // let resultat = screenInput.value.replace("×", "*");
+    //  resultat = resultat.replace("÷", "/");
+    let resultat = screenInput.value.replace("×", "*").replace("÷", "/");
     screenResult.innerText +=eval(resultat); 
 }
 

@@ -7,7 +7,8 @@
 
 /*3.Faire en sorte que quand il y'a un event onclick sur un operateur les données entrées
  dans le screeninput monte sur le screenresult*/
- //4.remplacer x par * et ÷ par / a partir de la methode replace 
+//4.remplacer x par * et ÷ par / a partir de la methode replace 
+//5.gère le boutton AC qui reinitialise la calcularice
 
 const screenInput = document.getElementById("input");
 //je cible tout les elements des type bouttons, avec leurs classe et id 
@@ -56,6 +57,15 @@ else if(event.target.innerText == "+" || event.target.innerText == "-" || event.
     /*ScreenInput.value revoie le resultat final dans le screenInput.value
     et la methode replace remplacer x par * et ÷ par / */
     screenInput.value = eval(resultatFinal.replace("×", "*").replace("÷", "/"));  
+}
+//cette condition gère le boutton AC qui reinitialise la calcularice
+else if(event.target.innerText == "AC"){
+   screenInput.value = "";
+   screenHistorique.innerText = "";
+}
+else if(event.target.innerText == "C"){
+
+screenInput.value.replace(screenInput.value,'0'); 
 }
  else {
     screenInput.value += event.target.innerText;

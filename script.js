@@ -38,7 +38,7 @@ else if(event.target.innerText == "+" || event.target.innerText == "-" || event.
    valeurScreenHistorique = screenHistorique.innerText; 
    /*la variable screenResult stocke la concatenation de la valeur afficher 
    dans le screenInput.value et une des operations*/
-   valeurScreenHistorique = `${screenInput.value} ${event.target.innerText}`;
+   valeurScreenHistorique += `${screenInput.value} ${event.target.innerText}`;
    //screenHistorique.innertext afficher la valeur stockée dans la variable valeurScreenHistorique
    screenHistorique.innerText =valeurScreenHistorique;
    //vide la value de screeninput une fois les autres operations effectuer 
@@ -48,9 +48,11 @@ else if(event.target.innerText == "+" || event.target.innerText == "-" || event.
  else if(event.target.innerText == "="){
     //la variable resultatConcatenation stock la concantenation du screenHistorique de la précedente condition 
     //et celui de la valeur de l'input quand on appuie sur égale pour 
-    let resultatConcatenation = `${screenHistorique.innerText}  ${screenInput.value} =`;
+    let resultatConcatenation;
+    resultatConcatenation = `${screenHistorique.innerText}  ${screenInput.value} =`;
     //la variable resultatFinal concatene le screenHistorique et la valeur du screenInput
-    let resultatFinal = screenHistorique.innerText + screenInput.value;
+    let resultatFinal;
+    resultatFinal = screenHistorique.innerText + screenInput.value;
     /*screenHistorique.innerText renvoie la concatenation de la variable resultatConcatenation 
     dans le screenHistorique*/
     screenHistorique.innerText = resultatConcatenation;
@@ -58,11 +60,17 @@ else if(event.target.innerText == "+" || event.target.innerText == "-" || event.
     et la methode replace remplacer x par * et ÷ par / */
     screenInput.value = eval(resultatFinal.replace("×", "*").replace("÷", "/"));  
 }
+else if(event.target.innerText == "%"){
+let pourcentage = screenInput.value;
+pourcentage =(pourcentage*100)/screenInput.value;
+screenInput.value = pourcentage;
+}
 //cette condition gère le boutton AC qui reinitialise la calcularice
 else if(event.target.innerText == "AC"){
    screenInput.value = "";
    screenHistorique.innerText = "";
 }
+//cette condition gère le boutton C qui efface le nombres entrée par l'utilisateur dans la calcularice
 else if(event.target.innerText == "C"){
 const effacer = screenInput.value;
 screenInput.value = effacer.slice(0,-1);

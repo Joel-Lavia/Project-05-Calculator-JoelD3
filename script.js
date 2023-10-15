@@ -64,8 +64,8 @@ else if(event.target.innerText == "AC"){
    screenHistorique.innerText = "";
 }
 else if(event.target.innerText == "C"){
-
-screenInput.value.replace(screenInput.value,'0'); 
+const effacer = screenInput.value;
+screenInput.value = effacer.slice(0,-1);
 }
  else {
     screenInput.value += event.target.innerText;
